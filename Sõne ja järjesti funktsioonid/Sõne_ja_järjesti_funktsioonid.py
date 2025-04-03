@@ -1,4 +1,4 @@
-﻿def string_operations():
+def string_operations():
     while True:
         print("\nMenüü funktsioonide jaoks stringidega ja loenditega töötamiseks:")
         print("1. Stringide ühendamine")
@@ -72,8 +72,8 @@
         
         elif choice == "0":
             print("Programmist väljumine.")
-            break
             """See käsk lõpetab programmi töö."""
+            break
         
         else:
             print("Vale sisestus, proovige uuesti.")
