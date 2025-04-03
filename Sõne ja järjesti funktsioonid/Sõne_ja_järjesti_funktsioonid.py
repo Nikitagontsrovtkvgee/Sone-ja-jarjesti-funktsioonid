@@ -480,25 +480,47 @@ def string_operations():
         
         elif choice == "7":
             s = input("Sisestage string: ")
-            print("Suurtähtedega string:", s.upper())
-            """See funktsioon teisendab kõik stringi märgid suurtähtedeks."""
+            try:
+                number = float(s)  
+                print(f"String on number: {number}")  
+            except ValueError:  
+                print("String ei ole number.")  
+            """See funktsioon proovib teisendada stringi arvuks. Kui teisendamine ei õnnestu, väljastatakse veateade."""
         
         elif choice == "8":
-            s = input("Sisestage string: ")
-            print("Väiketähtedega string:", s.lower())
-            """See funktsioon teisendab kõik stringi märgid väiketähtedeks."""
+            n = int(input("Sisestage stringide arv: "))  
+            strings = [input(f"Sisestage string {i+1}: ") for i in range(n)]  
+            prefix = strings[0]  
+            for string in strings[1:]:  
+                while not string.startswith(prefix):  
+                    prefix = prefix[:-1]  
+            print("Ühine eellause:", prefix)  
+            """See funktsioon leiab kõikide sisestatud stringide ühise eellause, võrreldes neid järjestikku."""
         
         elif choice == "9":
-            s = input("Sisestage string: ")
-            char = input("Sisestage märk: ")
-            print("Märgi esinemissagedus:", s.count(char))
-            """See funktsioon loendab, mitu korda määratud märk stringis esineb."""
+            s = input("Sisestage string: ")  
+            unique_chars = len(set(s))  
+            print("Ainulaadsete märkide arv:", unique_chars)  
+            """See funktsioon arvutab, kui palju ainulaadseid märke on stringis, kasutades set()-i."""
         
         elif choice == "10":
-            words = input("Sisestage sõnade loend komaga eraldatult: ").split(', ')
-            print("Sorteeritud loend:", sorted(words))
-            """See funktsioon sorteerib sõnade loendi tähestikulises järjekorras."""
+            s = input("Sisestage string: ")  
+            words = s.split()  
+            print("Sõnade arv:", len(words))  
+            """See funktsioon jagab stringi sõnadeks ja loendab, kui palju sõnu stringis on."""
         
+        elif choice == "0":
+            print("Programmist väljumine.")
+            """See käsk lõpetab programmi töö."""
+            break
+        
+        else:
+            print("Vale sisestus, proovige uuesti.")
+            """See sõnum teatab kasutajale, kui ta sisestas vale toimingu numbri."""
+
+if __name__ == "__main__":
+    string_operations()
+    """Käivitatakse programmi põhifunktsioon."""
         elif choice == "0":
             print("Programmist väljumine.")
             """See käsk lõpetab programmi töö."""
